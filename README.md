@@ -2,7 +2,7 @@
 
 Submitted by: **Johan Delao**
 
-**SeaFunder** is a website for the company Sea Monster Crowdfunding that displays information about the games they have funded.
+**SeaFunder** is a website for the company Sea Monster Crowdfunding that displays information about the games they have funded. Link: https://johandelao.github.io/web102_prework/
 
 Time spent: **6** hours spent in total
 
