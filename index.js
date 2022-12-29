@@ -224,10 +224,10 @@ let [first, second, ...rest] = sortedGames;
 
 // create a new element to hold the name of the top pledge game, then append it to the correct element
 let firstText = `${first.name}`;
-// firstGameContainer.innerHTML += `<p>${firstText}</p>`
+firstGameContainer.innerHTML += `<p>${firstText}</p>`
 
 // do the same for the runner up item
-// secondGameContainer.innerHTML += `<p>${second.name}</p>`
+secondGameContainer.innerHTML += `<p>${second.name}</p>`
 
 const searchBar = document.getElementById('searchBar');
 searchBar.addEventListener("input", (e) => {
@@ -235,6 +235,8 @@ searchBar.addEventListener("input", (e) => {
     console.log(text);
     let gamesFiltered = GAMES_JSON.filter((game) => {
         let name = game.name;
+        name = name.toLowerCase();
+        text = text.toLowerCase();
         return name.includes(text)
     })
     deleteChildElements(gamesContainer);

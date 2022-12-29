@@ -35,8 +35,6 @@ h2 {
 }
 
 .stats-container {
-    display: flex;
-    align-items: stretch;
     background-color: #003457;
     color: white;
     border-radius: 10px;
@@ -45,7 +43,12 @@ h2 {
     width: 80%;
     margin: 0 auto;
 }
-
+.firstStatsContainer{
+    display: flex;
+}
+.secondStatsContainer{
+    display: flex;
+}
 .stats-card {
     background-color: #003457;
     border-radius: 7px;
