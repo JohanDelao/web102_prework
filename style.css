@@ -1,14 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&display=swap');
 
 body {
-    font-family: 'Cabin';
-    background-color: #758190;
+    font-family:'Nunito Sans', sans-serif;
+    background-color: white;
 }
 
+h2 {
+    font-family:'Nunito Sans', sans-serif;
+    font-size: 35px;
+    font-weight: 900;
+}
 #tentacles {
     width: 50px;
 }
-
+#description{
+    width: 80%;
+    margin: 0 auto;
+}
+#description-container p{
+    color: #241E12;
+    font-size: 18px;
+    width: 50%;
+    margin: 0;
+}
 .header {
     display: flex;
     background-color: lightblue;
@@ -17,30 +31,48 @@ body {
     margin-left: -10px;
     margin-right: -10px;
     margin-top: -10px;
+    padding-left: 10%;
 }
 
 .stats-container {
     display: flex;
     align-items: stretch;
+    background-color: #003457;
+    color: white;
+    border-radius: 10px;
+}
+.stats-container-holder{
+    width: 80%;
+    margin: 0 auto;
 }
 
 .stats-card {
-    background-color: #a8b0bc;
+    background-color: #003457;
     border-radius: 7px;
-    padding: 1%;
-    margin: 1%;
+    padding: 1% 0;
+    margin: 1% 0;
     width: 100%;
     text-align: center;
 }
 
+.stats-card h3{
+    font-size: 18px;
+    font-weight: 500;
+}
+.stats-card p{
+    font-size: 25px;
+    font-weight: 800;
+}
 #num-contributions, #total-raised, #num-games {
-    font-size: 50px;
+    font-size: 20px;
+    opacity: 75%;
 }
 
 #games-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    margin-top: 2rem;
 }
 
 .game-img {
@@ -50,12 +82,18 @@ body {
 }
 
 .game-card {
-    background-color: #FFFFFF;
-    padding: 1%;
-    margin: 1%;
+    background-color: #f3f3f5;
     width: 300px;
-    text-align: center;
     border-radius: 7px;
+    margin-right: 5rem;
+    margin-bottom: 5rem;
+    height: fit-content;
+    padding-bottom: 2rem;
+}
+.game-card h2{
+    font-size: 20px;
+    font-family:'Nunito Sans', sans-serif;
+    margin-bottom: 0;
 }
 
 .game-card:hover {
@@ -70,7 +108,75 @@ body {
 button {
     font-family: 'Cabin';
     border: none;
-    padding: 1%;
+    padding: 2%;
     margin: 1%;
     border-radius: 7px;
+}
+.cardColumns{
+    display: flex;
+    justify-content: space-between;
+}
+.numberBold{
+    font-weight: 900;
+    font-size: 20px;
+    margin-bottom: 0;
+}
+.columnText{
+    margin: 0;
+    font-size: 15px;
+    font-weight: 700;
+    color: #676767;
+}
+.gameSection{
+    background: white;
+    margin: 0 auto;
+    width: 80%;
+}
+.gameSectionCard{
+  margin: 0 10px;
+}
+/* .cardColumns{
+    margin-top: 2rem;
+} */
+.percentage-bar {
+    width: 17rem;
+    height: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 1rem;
+  }
+.bar {
+    height: 100%;
+    background-color: #4caf50;
+}
+#button-container button:hover{
+    background: black;
+    color: white;
+    cursor: pointer;
+}
+#gameHeader{
+    display: flex;
+    justify-content: space-between;
+}
+#button-container{
+    width: 50%;
+    margin-top: 2%;
+}
+@media screen and (max-width: 600px) {
+    .stats-container{
+        display: block;
+    }
+    .game-card{
+        margin-right: 0;
+    }
+    #description-container p{
+        width: 100%;
+    }
+    #gameHeader{
+        display: block;
+    }
+    #button-container{
+        width: 100%;
+    }
 }

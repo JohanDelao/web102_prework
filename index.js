@@ -33,17 +33,40 @@ function addGamesToPage(games) {
         // create a new div element, which will become the game card
         const newDiv = document.createElement("div");
 
+        let percent;
+
+        if(games[i].goal <= games[i].pledged){
+            percent = 100;
+        }else{
+            percent = games[i].pledged / games[i].goal * 100;
+        }
 
         // add the class game-card to the list
         newDiv.classList.add("game-card")
         let gameAttributes = `
-            <img src="${games[i].img}" height=100>
-            <h2>${games[i].name}</h2>
-            <p>${games[i].description}</p>
-            <p>Backers: ${games[i].backers}</p>
-            <p>Pledged: ${games[i].pledged}</p>
-            <p>Goal: ${games[i].goal}</p>
-        ` 
+            <img class="game-img" src="${games[i].img}">
+            <div class="gameSectionCard">
+                <h2>${games[i].name}</h2>
+                <div class="cardColumns">
+                    <div class="backersColumn">
+                        <p class="numberBold">${games[i].backers}</p>
+                        <p class="columnText">Backers</p>
+                    </div>
+                    <div class="pledgedColumn">
+                        <p class="numberBold">${games[i].pledged}</p>
+                        <p class="columnText">Raised</p>
+                    </div>
+                    <div class="goalColumn">
+                        <p class="numberBold">${games[i].goal}</p>
+                        <p class="columnText">Goal</p>
+                    </div>
+                </div>
+                <div class="percentage-bar">
+                    <div class="bar" style="width: ${percent}%"></div>
+                </div>
+
+            </div>
+        `
         newDiv.innerHTML = gameAttributes;
 
         // set the inner HTML using a template literal to display some info 
@@ -78,7 +101,7 @@ const totalContributions = GAMES_JSON.reduce((acc, game) => {
 
 // set the inner HTML using a template literal and toLocaleString to get a number with commas
 let contributionsTotalText = `
-    <p>${totalContributions}</p>
+    <p>${totalContributions.toLocaleString("en-US")}</p>
 `;
 contributionsCard.innerHTML = contributionsTotalText;
 
@@ -90,7 +113,7 @@ const totalRaised = GAMES_JSON.reduce((acc, game) => {
 }, 0)
 
 // set inner HTML using template literal
-let raisedText = `<p>${totalRaised}</p>`
+let raisedText = `<p>$${totalRaised.toLocaleString("en-US")}</p>`
 raisedCard.innerHTML = raisedText;
 
 
@@ -127,7 +150,6 @@ function filterUnfundedOnly() {
 // show only games that are fully funded
 function filterFundedOnly() {
     deleteChildElements(gamesContainer);
-
     // use filter() to get a list of games that have met or exceeded their goal
     let gamesFunded = GAMES_JSON.filter((game) => {
         return game.pledged >= game.goal;
@@ -182,8 +204,8 @@ const displayStr = `A total of $${totalRaised.toLocaleString("en-US")} has been 
 
 
 // create a new DOM element containing the template string and append it to the description container
-let challenge6Text = `<p>${displayStr}</p>`;
-descriptionContainer.innerHTML += challenge6Text
+// let challenge6Text = `<p>${displayStr}</p>`;
+// descriptionContainer.innerHTML += challenge6Text
 
 /************************************************************************************
  * Challenge 7: Select & display the top 2 games
@@ -199,13 +221,23 @@ const sortedGames =  GAMES_JSON.sort( (item1, item2) => {
 
 // use destructuring and the spread operator to grab the first and second games
 let [first, second, ...rest] = sortedGames;
-console.log(first)
-console.log(second)
-console.log(rest)
 
 // create a new element to hold the name of the top pledge game, then append it to the correct element
 let firstText = `${first.name}`;
-firstGameContainer.innerHTML += `<p>${firstText}</p>`
+// firstGameContainer.innerHTML += `<p>${firstText}</p>`
 
 // do the same for the runner up item
-secondGameContainer.innerHTML += `<p>${second.name}</p>`
+// secondGameContainer.innerHTML += `<p>${second.name}</p>`
+
+const searchBar = document.getElementById('searchBar');
+searchBar.addEventListener("input", (e) => {
+    let text = e.target.value;
+    console.log(text);
+    let gamesFiltered = GAMES_JSON.filter((game) => {
+        let name = game.name;
+        return name.includes(text)
+    })
+    deleteChildElements(gamesContainer);
+    addGamesToPage(gamesFiltered)
+})
+console.log(searchBar);
