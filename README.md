@@ -26,7 +26,7 @@ The following **optional** features are implemented:
 
 Here's a walkthrough of implemented features:
 
-<img src='https://github.com/JohanDelao/web102_prework/blob/main/seaFunder.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://github.com/JohanDelao/web102_prework/blob/main/seaFunder2.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with LICEcap
