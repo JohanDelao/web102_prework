@@ -200,12 +200,12 @@ const numUnfunded = GAMES_JSON.reduce((acc, game) => {
 
 
 // create a string that explains the number of unfunded games using the ternary operator
-const displayStr = `A total of $${totalRaised.toLocaleString("en-US")} has been raised for ${GAMES_JSON.length} games. Currently, ${numUnfunded} ${numUnfunded == 1 ? `game remains`:`games remain`} unfunded. We need your help to fund these amazing games!`
+const displayStr = `A total of <strong>$${totalRaised.toLocaleString("en-US")}</strong> has been raised for <strong>${GAMES_JSON.length}</strong> games. Currently, <strong>${numUnfunded}</strong> ${numUnfunded == 1 ? `game remains`:`games remain`} unfunded. We need your help to fund these amazing games!`
 
 
 // create a new DOM element containing the template string and append it to the description container
-// let challenge6Text = `<p>${displayStr}</p>`;
-// descriptionContainer.innerHTML += challenge6Text
+let challenge6Text = `<p>${displayStr}</p>`;
+descriptionContainer.innerHTML += challenge6Text
 
 /************************************************************************************
  * Challenge 7: Select & display the top 2 games
